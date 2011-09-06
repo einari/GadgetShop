@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="outer">
+	<div id="wrapper">
+		<div id="nav">
+		  <div id="nav-left">
+		    <div id="nav-right">
+    			<ul>
+    			  <li><a href="http://www.freewebsitetemplates.com">ABOUT US</a></li>
+                  <!--
+    			  <li><a href="http://www.freewebsitetemplates.com">PRODUCTS</a></li>
+    			  <li><a href="http://www.freewebsitetemplates.com">SERVICES</a></li>
+    			  <li><a href="http://www.freewebsitetemplates.com">SHOPPING CART</a></li>
+    			  <li><a href="http://www.freewebsitetemplates.com">NEW GADGETS</a></li>
+    			  <li><a href="http://www.freewebsitetemplates.com">REGISTER</a></li>-->
+    			</ul>
+		    </div>
+		  </div>
+			<div class="clear"></div>
+		</div>
+		<div id="head">
+			<div id="head-left"></div>
+			<div id="head-right"></div>
+			<div id="head-1"></div>
+			<h1><span class="logo"><span class="top">top</span><span class="gadgets">gadgets</span></span></h1>
+			<div id="navb">
+			  <ul>
+				  <li><a href="http://www.freewebsitetemplates.com">HOME</a></li>
+				  <li><a href="http://www.freewebsitetemplates.com">CONTACT</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="head-2"></div>
+
+        
+		<div id="login">
+        
+			<div id="login-bot">
+            
+				<div id="login-box">
+                
+					<h2 class="login"><em>user</em>login</h2>
+					<form action="">
+						<div id="login-username">
+							<div><label for="username">username</label>: <input type="text" name="username" value="" id="username" /></div>
+							<div><label for="password">password</label>: <input type="password" name="password" value="" id="password" /></div>
+						</div>
+						<div id="login-button">
+							<input type="image" src="@Url.Content("~/Content/Images/btn_login.gif")" name="l" value="h" id="l" />
+						</div>
+						<div class="clear">
+							<div class="reg">
+								New User? <a href="http://www.freewebsitetemplates.com">REGISTER for FREE</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="login-welcome">
+					<div>
+						<h2>Welcome</h2>
+						<p>Don't forget to check <a href="http://www.freewebsitetemplates.com">free website templates</a> every day, because we add  a new free website template almost daily.</p>
+					</div>
+				</div>
+				<div class="clear"></div>
+                
+			</div>
+		</div>
+        
+		<div id="body">
+			<div id="body-bot">
+                    
+
+                    
+					<h2><span>top <strong>GADGETS</strong> of this month</span></h2>
+                    @RenderBody()
+                    
+					<div id="banner">
+                        @RenderSection("Banner", false)
+
+						<div class="clear"></div>
+					</div>
+					<div id="footer">
+						<div id="footloose"><span class="logo"><span class="top">top</span><span class="gadgets">gadgets</span></span></div>
+						<p><a href="http://www.ingebrigtsen.info">Privacy Policy</a> <strong>&nbsp;:&nbsp;</strong> <a href="http://www.ingebrigtsen.info">Terms &amp; Conditions</a> <br />
+						&copy; Copyright 2011. All rights reserved.</p>
+					</div>					
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

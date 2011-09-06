@@ -1,0 +1,365 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	font: 10px Tahoma, verdana, sans-serif;
+}
+img {
+	border: 0px;
+}
+a {
+	color: #575757;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	color: #2B2B2B;
+	text-decoration: underline;
+}
+ul {
+	margin: 0px 0px 0px 2em;
+	padding: 0px;
+}
+li {
+	list-style: square;
+	margin: 0px;
+	padding: 0px;
+}
+.clear {
+	clear: both;
+}
+form {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: url(images/bg.jpg);
+}
+#outer {
+	background: url(images/bg_top.jpg) repeat-x;
+	min-height: 757px;
+	padding: 67px 0px;
+	text-align: center;
+}
+#wrapper {
+	text-align: left;
+	margin: auto;
+	position: relative;
+	width: 563px;
+}
+#nav {
+  background: url(images/nav_bg.gif) repeat-x;
+}
+#nav-left {
+  background: url(images/nav_left.gif) no-repeat;
+  width: 100%;
+}
+#nav-right {
+  background: top right url(images/nav_right.gif) no-repeat;
+  height: 33px;
+}
+#nav a, #navb a {
+  color: #C0C4AB;
+  text-decoration: none;
+  font: bold 9px arial, sans-serif;
+}
+#nav a:hover, #navb a:hover {
+  color: white;
+}
+#nav ul {
+  padding-top: 9px;
+}
+#nav li {
+  display: inline;
+  padding: 0px 15px;
+}
+#head {
+	position: relative;
+	height: 157px;
+	background: url(images/head_bg.gif);
+}
+#head h1 {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 45px;
+	left: 29px;
+}
+.logo {
+  display: block;
+  float: left;
+  border: 2px solid #B3B79E;
+  border-top: none;
+  border-bottom: none;
+  padding: 0px 5px;
+  font: 20px "arial narrow", arial, sans-serif;
+  height:55px;
+}
+.logo .top {
+  display: block;
+  color: #303228;
+}
+.logo .gadgets {
+  display: block;
+  color: #6C7376;
+  font-size: 28px;
+  margin-top: 0px;
+  line-height: 32px;
+  
+}
+#head-left {
+	position: absolute;
+	top: 0px;
+	left: -16px;
+	width: 16px;
+	height: 200px;
+	background: url(images/head_left.gif) no-repeat;
+}
+#head-right {
+	position: absolute;
+	top: 0px;
+	left: 562px;
+	width: 16px;
+	height: 200px;
+	background: url(images/head_right.gif) no-repeat;
+}
+#navb {
+	position: absolute;
+	top: 138px;
+	left: 10px;
+	height: 19px;
+}
+#navb ul {
+  margin: 0px;
+  padding: 0px;
+}
+#navb li {
+  float: left;
+  width: 76px;
+  height: 19px;
+  background: url(images/small_nav_tab.gif) no-repeat;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  padding-top: 4px;
+}
+#navb a {
+  color: #E1E1D5;
+}
+#head-1 {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 325px;
+	height: 157px;
+	background: url(images/head_1.jpg) no-repeat;			
+}
+#head-2 {
+	height: 184px;
+	background: url(images/head_2.jpg) no-repeat;			
+}
+#login {
+	background: url(images/login_bg.jpg) repeat-y;
+	font-weight: bold;
+	color: #E1E1D5;
+}
+#login-bot {
+	background: bottom url(images/login_bot.jpg) no-repeat;
+	padding: 6px 0px 19px 0px;
+}
+#login-box {
+	float: left;
+	width: 260px;
+}
+#login h2 {
+	margin: 0px;
+	padding: 0px 0px 3px;
+}
+#login a {
+	color: #303228;
+}
+#login a:hover {
+	color: #1C1D10;
+}
+#login-box h2 {
+	padding: 0px 0px 3px 30px;
+	margin-left: 45px;
+	margin-bottom: 3px;
+  color: #303228;
+  font: 18px "arial narrow", arial, sans-serif;
+  background: url(images/h_login.gif) no-repeat;
+}
+#login-box h2 em {
+  font-style: normal;
+  color: #ECEEE4;
+}
+#login-username {
+	float: left;
+	width: 195px;
+	text-align: right;
+	color: #303228;
+}
+#login-username input {
+	width: 120px;
+	background: #FFFFFF;
+	color: #303228;
+	font-size: 10px;
+	border: 1px solid #60654E;
+}
+#login-username div {
+	padding-bottom: 1px;
+}
+#login-button {
+	float: left;
+	width: 45px;
+	margin: 2px 10px;
+}
+#login-box .reg {
+	text-align: right;
+	padding: 6px 27px 0px 0px;
+}
+#login-welcome {
+	float: right;
+	width: 278px;
+}
+#login-welcome div {
+	padding-right: 23px;
+}
+#login-welcome h2 {
+  color: #4E523F;
+  font: 20px "arial narrow", arial, sans-serif;
+  margin-bottom: 0.3em;
+  padding-bottom: 0px;
+}
+#login-welcome p {
+  margin-top: 0px;
+}
+#body {
+	background: url(images/body_bg.gif) repeat-y;
+}
+#body-bot {
+	background: bottom url(images/body_bot.gif) no-repeat;
+	padding-bottom: 20px;
+}
+#body h2 {
+	margin: 0px;
+	padding: 0px;
+	background: url(images/body_top.gif) no-repeat;
+	height: 60px;
+	color: #303228;
+  font: normal 18px "arial narrow", arial, sans-serif;
+}
+#body span {
+  position: relative;
+  top: 25px;
+  left: 40px;
+}
+#body h2 strong {
+  color: #982801;
+  font-weight: normal;
+}
+#footer {
+	background: url(images/footer_bg.gif);
+	margin: 0px 1px;
+	text-align: right;
+	padding: 42px 26px 30px 0px;
+	position: relative;
+}
+#footer p {
+	margin: 0 115px 0 0;
+	padding: 6px 0px;
+}
+#footloose {
+  text-align: left;
+  position: absolute;
+  top: 10px;
+  right: 5em;
+  margin: 0px;
+  padding: 0px;
+  text-indent: 0px;
+}
+#footloose .logo span {
+  top: 0px;
+  left: 0px;
+}
+#items {
+	margin: 8px 0px 0px 29px;
+	color: #36382E;
+	font: 9px tahoma, verdana, sans-serif;
+}
+.item {
+	float: left;
+	width: 228px;
+	margin-right: 31px;
+}
+.item h3,.item h3 a {
+	font-size: 11px;
+	margin: 12px 0px 6px 0px;
+	color: #2B2B2B;
+}
+.item p {
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+}
+.item .details, .item .addtocart {
+	font: 11px arial, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 1px 5px;
+}
+.item .details:hover, .item .addtocart:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.item .details {
+	background: #982801;
+}
+.item .addtocart {
+	background: #60654E;
+}
+.item .details:hover {
+	background: #BE3302;
+}
+.item .addtocart:hover {
+	background: #73795F;
+}
+.item .divider {
+	clear: both;
+	height: 10px;
+	background: bottom url(images/dash.gif) repeat-x;
+	margin-bottom: 8px;
+	margin-left: 12px;
+	margin-right: 16px;
+}
+.left {
+	float: left;
+	padding-right: 12px;
+}
+.right {
+	float: right;
+	margin-left: 9px;
+}
+#banner {
+	height: 121px;
+	margin: 0px 11px;
+	background: #D4D4C5 bottom url(images/banner.gif) repeat-x;
+}
+#banner-text {
+	color: #474747;
+	padding-top: 15px;
+	float: right;
+	width: 252px;
+}
+#banner-text h3 {
+	font-size: 11px;
+	margin: 0px 0px 2px 0px;
+	padding: 0px;
+}
+#banner-text a {
+	color: #036292;
+}
+#banner-text a:hover {
+	color: #982801;
+}

@@ -1,0 +1,23 @@
+﻿@using GadgetShop.Domain.Products
+
+@model IEnumerable<Product>
+
+<div id="items">
+    @foreach (var product in Model)
+    {
+        Html.RenderPartial("_Product", product);
+    }
+    <div class="clear">
+    </div>
+</div>
+
+@section Banner {
+    <img src="@Url.Content("~/Content/Images/pic_5.jpg")" width="256" height="109" alt="Nokia 6015i" class="left" />
+    <div id="banner-text">
+	    <h3><a href="http://www.freewebsitetemplates.com">Nokia 6015i</a> (Verizon Wireless)</h3>
+	    <ul>
+		    <li>You can remove any link to our websites from this template you're  free to use the template without linking   			back to us.</li>
+		    <li>This is just a place holder so you can see how the site would look like.</li>
+	    </ul>
+    </div>    
+}
