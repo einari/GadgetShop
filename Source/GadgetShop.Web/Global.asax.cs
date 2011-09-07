@@ -4,14 +4,42 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ninject;
+using Ninject.Web.Mvc;
+using GadgetShop.Web.Modules;
+using GadgetShop.Domain.Products;
+using GadgetShop.Web.Binders;
 
 namespace GadgetShop.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : NinjectHttpApplication
     {
+        protected override IKernel CreateKernel()
+        {
+            ModelBinders.Binders.AddFor<Product>();
+
+            var kernel = new StandardKernel(
+                new InfrastructureModule(), 
+                new DomainModule()
+            );
+            return kernel;
+        }
+
+
+        protected override void OnApplicationStarted()
+        {
+            AreaRegistration.RegisterAllAreas();
+
+            RegisterGlobalFilters(GlobalFilters.Filters);
+            RegisterRoutes(RouteTable.Routes);
+
+            RelocateViews("Features");
+        }
+
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -26,17 +54,6 @@ namespace GadgetShop.Web
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
-        }
-
-        protected void Application_Start()
-        {
-            AreaRegistration.RegisterAllAreas();
-
-            RegisterGlobalFilters(GlobalFilters.Filters);
-            RegisterRoutes(RouteTable.Routes);
-
-            RelocateViews("Features");
         }
 
 
@@ -77,7 +94,5 @@ namespace GadgetShop.Web
         {
             return strings.Select(@string => @string.Replace(partToReplace, replaceWith)).ToArray();
         }
-
-
     }
 }

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetShop.Web", "GadgetSho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetShop.Domain", "GadgetShop.Domain\GadgetShop.Domain.csproj", "{12325C9C-63E6-442A-9CC2-BEFF35EEDF71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetShop.Infrastructure", "GadgetShop.Infrastructure\GadgetShop.Infrastructure.csproj", "{C430FD22-5DB4-4C1D-8DA2-111F9522059E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{12325C9C-63E6-442A-9CC2-BEFF35EEDF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12325C9C-63E6-442A-9CC2-BEFF35EEDF71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12325C9C-63E6-442A-9CC2-BEFF35EEDF71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C430FD22-5DB4-4C1D-8DA2-111F9522059E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C430FD22-5DB4-4C1D-8DA2-111F9522059E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C430FD22-5DB4-4C1D-8DA2-111F9522059E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C430FD22-5DB4-4C1D-8DA2-111F9522059E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,8 +10,12 @@
         Even more websites all about website templates on <a href="http://www.justwebtemplates.com">
             Just Web Templates</a>.</p>
     <div>
-        <a href="http://www.freewebsitetemplates.com" class="details">details</a> 
-        <a href="http://www.freewebsitetemplates.com" class="addtocart">add to cart</a>
+        @Html.ActionLink("details", "Details", "Products", new { productId = 0 }, new { @class = "details" })
+        @using (Html.BeginForm("Add", "Carts", FormMethod.Post))
+        {
+            @Html.Hidden("Id",Model.ProductId)
+            @Html.ActionLink("add to cart", "Add", "Carts", new { Id = 0 }, new { @class = "addtocart", onclick="$.post(this.href); return false;" })
+        }
     </div>
 
     <div class="divider">

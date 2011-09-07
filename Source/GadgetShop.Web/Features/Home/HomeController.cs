@@ -5,8 +5,13 @@ namespace GadgetShop.Web.Features.Home
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+        IProductRepository _productRepository;
+
+        public HomeController(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
 
         public ActionResult Index()
         {
