@@ -15,15 +15,8 @@ namespace GadgetShop.Web.Features.Home
 
         public ActionResult Index()
         {
-            var products = new[] {
-                new Product { Name = "Something" },
-                new Product { Name = "Exciting" },
-                new Product { Name = "Going" },
-                new Product { Name = "On" }
-            };
-
+            var products = _productRepository.GetTopProducts(4);
             return View(products);
         }
-
     }
 }

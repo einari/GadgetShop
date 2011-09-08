@@ -12,10 +12,10 @@ namespace GadgetShop.Web.Features.Carts
         [HttpPost]
         public ActionResult Add(Product product)
         {
-            return View();
+            return RedirectToAction("Index");
         }
 
-
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

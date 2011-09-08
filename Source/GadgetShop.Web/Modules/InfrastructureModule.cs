@@ -7,7 +7,6 @@ namespace GadgetShop.Web.Modules
     {
         public override void Load()
         {
-            Bind(typeof(IEntityContext<>)).To(typeof(EntityContext<>)).InRequestScope();
         }
     }
 }

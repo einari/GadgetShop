@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using GadgetShop.Infrastructure.Entities;
+using System;
 
 namespace GadgetShop.Web.Binders
 {
@@ -10,7 +11,7 @@ namespace GadgetShop.Web.Binders
             var value = bindingContext.ValueProvider.GetValue("Id");
             if (value != null)
             {
-                var id = (int)value.ConvertTo(typeof(int));
+                var id = (Guid)value.ConvertTo(typeof(Guid));
                 var entityContext = DependencyResolver.Current.GetService<IEntityContext<T>>();
                 var entity = entityContext.GetById(id);
                 return entity;

@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.link-button.js")" type="text/javascript"></script>
 </head>
 <body>
     <div id="outer">
@@ -26,22 +27,13 @@
             <div id="body">
                 <div id="body-bot">
                     <h2>
-                        <span>top <strong>GADGETS</strong> of this month</span></h2>
+                        <span>@RenderSection("Headline", false)</span>
+                    </h2>
                     @RenderBody()
-                    <div id="banner">
-                        @RenderSection("Banner", false)
-                        <div class="clear">
-                        </div>
-                    </div>
-                    <div id="footer">
-                        <div id="footloose">
-                            <span class="logo"><span class="top">top</span><span class="gadgets">gadgets</span></span></div>
-                        <p>
-                            <a href="http://www.ingebrigtsen.info">Privacy Policy</a> <strong>&nbsp;:&nbsp;</strong>
-                            <a href="http://www.ingebrigtsen.info">Terms &amp; Conditions</a>
-                            <br />
-                            &copy; Copyright 2011. All rights reserved.</p>
-                    </div>
+                    
+                    @Html.Partial("_BottomBanner")
+                    
+                    @Html.Partial("_Footer")
                 </div>
             </div>
         </div>

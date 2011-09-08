@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace GadgetShop.Infrastructure.Entities
 {
-    public interface IEntityContext<T>
+    public interface IEntityContext<T> : IDisposable
     {
         IQueryable<T> Entities { get; }
-        T GetById(int id);
+        T GetById(Guid id);
         void Insert(T entity);
         void Update(T entity);
         void Delete(T entity);

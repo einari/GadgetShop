@@ -52,6 +52,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\Libraries\NHibernate\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Libraries\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\Libraries\CommonServiceLocator\dotNet\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -104,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binders\ModelBindersExtensions.cs" />
+    <Compile Include="Extensions\SubmitLinkExtensions.cs" />
     <Compile Include="Features\Carts\CartsController.cs" />
     <Compile Include="Features\Home\HomeController.cs" />
     <Compile Include="Features\Products\ProductsController.cs" />
@@ -112,10 +116,15 @@
     </Compile>
     <Compile Include="Binders\EntityModelBinder.cs" />
     <Compile Include="Modules\DomainModule.cs" />
+    <Compile Include="Modules\EntitiesModule.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Images\banner.gif" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bg_top.jpg" />
@@ -158,6 +167,7 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery.link-button.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -204,7 +214,9 @@
   <ItemGroup>
     <Content Include="Features\Shared\_Product.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\Shared\_Logo.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Shared\_Navigation.cshtml" />
   </ItemGroup>
@@ -219,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Products\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\Shared\_Footer.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -236,7 +251,7 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>10338</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>

@@ -1,39 +1,60 @@
 ﻿using System;
 using System.Linq;
+using NHibernate;
+using NHibernate.Linq;
 
 namespace GadgetShop.Infrastructure.Entities
 {
     public class EntityContext<T> : IEntityContext<T>
     {
+        ISession _session;
+
+        public EntityContext(EntityContextConnection connection)
+        {
+            _session = connection.SessionFactory.OpenSession();
+        }
+
+
         public IQueryable<T> Entities
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                var queryable = _session.Linq<T>();
+                return queryable;
+            }
         }
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            _session.Save(entity);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _session.Update(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _session.Delete(entity);
         }
 
         public void Commit()
         {
-            throw new NotImplementedException();
+            _session.Flush();
         }
 
 
-        public T GetById(int id)
+        public T GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return _session.Get<T>(id);
         }
+
+		public void Dispose()
+		{
+			_session.Flush();
+			_session.Close();
+			_session = null;
+		}
     }
 }

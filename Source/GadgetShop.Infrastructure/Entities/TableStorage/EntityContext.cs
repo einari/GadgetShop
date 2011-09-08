@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 
 namespace GadgetShop.Infrastructure.Entities.TableStorage
 {
@@ -30,7 +31,12 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
         }
 
 
-        public T GetById(int id)
+        public T GetById(Guid id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Dispose()
         {
             throw new System.NotImplementedException();
         }

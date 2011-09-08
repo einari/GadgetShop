@@ -22,6 +22,7 @@ namespace GadgetShop.Web
             ModelBinders.Binders.AddFor<Product>();
 
             var kernel = new StandardKernel(
+                new EntitiesModule(),
                 new InfrastructureModule(), 
                 new DomainModule()
             );

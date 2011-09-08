@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\Libraries\NHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\Libraries\NHibernate\NHibernate.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\EntityContext.cs" />
+    <Compile Include="Entities\EntityContextConnection.cs" />
     <Compile Include="Entities\IEntityContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\TableStorage\EntityContext.cs" />
