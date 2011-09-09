@@ -73,12 +73,14 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
 
         public void Update(T entity)
         {
-            UpdateObject(entity);
+            var actualEntity = GetActualEntity(entity);
+            UpdateObject(actualEntity);
         }
 
         public void Delete(T entity)
         {
-            DeleteObject(entity);
+            var actualEntity = GetActualEntity(entity);
+            DeleteObject(actualEntity);
         }
 
         public void Commit()
