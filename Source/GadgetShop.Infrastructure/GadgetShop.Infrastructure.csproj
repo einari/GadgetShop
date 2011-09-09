@@ -31,9 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Libraries\Castle\dotNet\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\Libraries\Castle\dotNet\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\Libraries\NHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="NHibernate">
       <HintPath>..\Libraries\NHibernate\NHibernate.dll</HintPath>
     </Reference>
@@ -42,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,9 +60,19 @@
     <Compile Include="Entities\EntityContext.cs" />
     <Compile Include="Entities\EntityContextConnection.cs" />
     <Compile Include="Entities\IEntityContext.cs" />
+    <Compile Include="Entities\IHaveId.cs" />
+    <Compile Include="Entities\TableStorage\Entity.cs" />
+    <Compile Include="Entities\TableStorage\EntityMap.cs" />
+    <Compile Include="Entities\TableStorage\ITableStorageEntity.cs" />
+    <Compile Include="Entities\TableStorage\PropertyMap.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\TableStorage\EntityContext.cs" />
+    <Compile Include="Security\IUserService.cs" />
+    <Compile Include="Security\UserService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

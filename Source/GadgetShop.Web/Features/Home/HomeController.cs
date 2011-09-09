@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using GadgetShop.Domain.Products;
+using GadgetShop.Infrastructure.Entities;
 
 namespace GadgetShop.Web.Features.Home
 {
@@ -7,7 +8,7 @@ namespace GadgetShop.Web.Features.Home
     {
         IProductRepository _productRepository;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, IEntityContext<Product> entityContext)
         {
             _productRepository = productRepository;
         }

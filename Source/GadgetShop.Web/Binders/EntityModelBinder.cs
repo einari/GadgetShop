@@ -5,6 +5,7 @@ using System;
 namespace GadgetShop.Web.Binders
 {
     public class EntityModelBinder<T> : IModelBinder
+        where T:IHaveId
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {

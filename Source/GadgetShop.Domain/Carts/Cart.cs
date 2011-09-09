@@ -12,9 +12,9 @@ namespace GadgetShop.Domain.Carts
 
         public List<CartItem> Items { get; set; }
 
-        public decimal Sum
+        public double Sum
         {
-            get { return Items.Sum(i => i.Price); }
+            get { return Items.Sum(i => i.Sum); }
         }
 
         public int TotalItems

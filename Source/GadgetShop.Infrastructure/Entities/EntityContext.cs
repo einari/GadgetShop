@@ -6,6 +6,7 @@ using NHibernate.Linq;
 namespace GadgetShop.Infrastructure.Entities
 {
     public class EntityContext<T> : IEntityContext<T>
+        where T : IHaveId
     {
         ISession _session;
 

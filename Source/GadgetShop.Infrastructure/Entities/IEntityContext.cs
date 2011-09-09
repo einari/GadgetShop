@@ -4,6 +4,7 @@ using System.Linq;
 namespace GadgetShop.Infrastructure.Entities
 {
     public interface IEntityContext<T> : IDisposable
+        where T:IHaveId
     {
         IQueryable<T> Entities { get; }
         T GetById(Guid id);

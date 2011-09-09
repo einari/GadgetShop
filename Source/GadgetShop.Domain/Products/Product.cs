@@ -1,8 +1,9 @@
 ﻿using System;
+using GadgetShop.Infrastructure.Entities;
 
 namespace GadgetShop.Domain.Products
 {
-    public class Product
+    public class Product : IHaveId
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

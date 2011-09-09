@@ -1,5 +1,6 @@
 ﻿using GadgetShop.Infrastructure.Entities;
 using Ninject.Modules;
+using GadgetShop.Infrastructure.Security;
 
 namespace GadgetShop.Web.Modules
 {
@@ -7,6 +8,7 @@ namespace GadgetShop.Web.Modules
     {
         public override void Load()
         {
+            Bind<IUserService>().To<UserService>().InRequestScope();
         }
     }
 }

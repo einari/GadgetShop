@@ -50,9 +50,13 @@
   <ItemGroup>
     <Compile Include="Carts\Cart.cs" />
     <Compile Include="Carts\CartItem.cs" />
+    <Compile Include="Carts\CartItemClassMap.cs" />
+    <Compile Include="Carts\CartRepository.cs" />
+    <Compile Include="Carts\ICartRepository.cs" />
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductClassMap.cs" />
+    <Compile Include="Products\ProductEntityMap.cs" />
     <Compile Include="Products\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
