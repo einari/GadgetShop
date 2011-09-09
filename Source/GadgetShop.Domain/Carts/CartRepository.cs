@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using GadgetShop.Infrastructure.Entities;
 using GadgetShop.Infrastructure.Security;
 
@@ -17,7 +18,9 @@ namespace GadgetShop.Domain.Carts
 
         public Cart Get()
         {
+            var userId = _userService.GetCurrentUserId();
             var cart = new Cart();
+            cart.Items.AddRange(_entityContext.Entities.Where(c => c.UserId == userId));
             return cart;
         }
 

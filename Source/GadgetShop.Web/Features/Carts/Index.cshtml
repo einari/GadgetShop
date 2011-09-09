@@ -1,1 +1,14 @@
-﻿
+﻿@using GadgetShop.Domain.Carts
+@model Cart
+
+<ul>
+@foreach (var cartItem in Model.Items)
+{
+    <li>
+        Item : @cartItem.Quantity<br />
+        Price : @cartItem.UnitPrice<br />
+        Total : @cartItem.Sum
+    </li>
+}
+</ul>
+Sum : @Model.Sum

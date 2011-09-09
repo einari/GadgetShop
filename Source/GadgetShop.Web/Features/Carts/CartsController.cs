@@ -24,7 +24,7 @@ namespace GadgetShop.Web.Features.Carts
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(_cartRepository.Get());
         }
 
     }
