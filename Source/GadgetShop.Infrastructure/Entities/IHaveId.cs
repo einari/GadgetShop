@@ -4,6 +4,6 @@ namespace GadgetShop.Infrastructure.Entities
 {
     public interface IHaveId
     {
-        Guid Id { get; }
+        Guid Id { get; set; }
     }
 }
