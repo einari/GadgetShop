@@ -55,12 +55,16 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
         {
             var generator = new ProxyGenerator();
             var options = new ProxyGenerationOptions();
-            options.AddMixinInstance(entity);
             options.AddMixinInstance(new Entity<T>(entity, _map));
 
             options.AttributesToAddToGeneratedTypes.Add(new DataServiceEntityAttribute());
             options.AttributesToAddToGeneratedTypes.Add(new DataServiceKeyAttribute("PartitionKey", "RowKey"));
+            
             var actualEntity = generator.CreateClassProxy(typeof(T), options);
+
+            var properties = typeof(T).GetProperties().Where(p=>p.CanWrite);
+            foreach( var property in properties ) 
+                property.SetValue(actualEntity, property.GetValue(entity,null), null);
 
             return actualEntity;
         }
@@ -96,7 +100,7 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
 
         public void Dispose()
         {
-            
+            Commit();
         }
     }
 }
