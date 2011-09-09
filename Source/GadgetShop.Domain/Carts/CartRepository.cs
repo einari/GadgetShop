@@ -23,7 +23,16 @@ namespace GadgetShop.Domain.Carts
 
         public void AddItem(Guid productId, int quantity, double price)
         {
-            throw new NotImplementedException();
+            var cartItem = new CartItem
+            {
+                Id = Guid.NewGuid(),
+                UserId = _userService.GetCurrentUserId(),
+                ProductId = productId,
+                Quantity = quantity,
+                UnitPrice = price
+            };
+            _entityContext.Insert(cartItem);
+            
         }
     }
 }

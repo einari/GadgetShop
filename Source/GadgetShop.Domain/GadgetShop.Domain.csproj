@@ -51,6 +51,7 @@
     <Compile Include="Carts\Cart.cs" />
     <Compile Include="Carts\CartItem.cs" />
     <Compile Include="Carts\CartItemClassMap.cs" />
+    <Compile Include="Carts\CartItemEntityMap.cs" />
     <Compile Include="Carts\CartRepository.cs" />
     <Compile Include="Carts\ICartRepository.cs" />
     <Compile Include="Products\IProductRepository.cs" />
