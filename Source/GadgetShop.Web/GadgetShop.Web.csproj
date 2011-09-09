@@ -110,7 +110,9 @@
   <ItemGroup>
     <Compile Include="Binders\ModelBindersExtensions.cs" />
     <Compile Include="Extensions\SubmitLinkExtensions.cs" />
+    <Compile Include="Features\Carts\CartItemViewModel.cs" />
     <Compile Include="Features\Carts\CartsController.cs" />
+    <Compile Include="Features\Carts\CartViewModel.cs" />
     <Compile Include="Features\Home\HomeController.cs" />
     <Compile Include="Features\Products\ProductsController.cs" />
     <Compile Include="Global.asax.cs">

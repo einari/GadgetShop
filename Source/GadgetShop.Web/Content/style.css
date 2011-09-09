@@ -369,3 +369,9 @@ body {
 #banner-text a:hover {
 	color: #982801;
 }
+
+#cart {
+	margin: 8px 0px 0px 29px;
+	color: #36382E;
+	font: 9px tahoma, verdana, sans-serif;
+}

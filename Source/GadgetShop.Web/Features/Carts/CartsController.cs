@@ -8,10 +8,12 @@ namespace GadgetShop.Web.Features.Carts
     public class CartsController : Controller
     {
         ICartRepository _cartRepository;
+        IProductRepository _productRepository;
 
-        public CartsController(ICartRepository cartRepository)
+        public CartsController(ICartRepository cartRepository, IProductRepository productRepository)
         {
             _cartRepository = cartRepository;
+            _productRepository = productRepository;
         }
 
         [HttpPost]
@@ -24,7 +26,9 @@ namespace GadgetShop.Web.Features.Carts
         [HttpGet]
         public ActionResult Index()
         {
-            return View(_cartRepository.Get());
+            var cart = _cartRepository.Get();
+            var cartViewModel = new CartViewModel(cart, _productRepository);
+            return View(cartViewModel);
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using GadgetShop.Infrastructure.Entities;
+using System;
 
 namespace GadgetShop.Domain.Products
 {
@@ -16,6 +17,11 @@ namespace GadgetShop.Domain.Products
         public IEnumerable<Product> GetTopProducts(int count)
         {
             return _productEntityContext.Entities.Take(count);
+        }
+
+        public Product GetById(Guid id)
+        {
+            return _productEntityContext.GetById(id);
         }
     }
 }
