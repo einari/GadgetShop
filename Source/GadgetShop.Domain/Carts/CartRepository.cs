@@ -28,7 +28,6 @@ namespace GadgetShop.Domain.Carts
         {
             var cartItem = new CartItem
             {
-                Id = Guid.NewGuid(),
                 UserId = _userService.GetCurrentUserId(),
                 ProductId = productId,
                 Quantity = quantity,

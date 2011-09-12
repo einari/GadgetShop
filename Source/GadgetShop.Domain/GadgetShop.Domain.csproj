@@ -54,6 +54,16 @@
     <Compile Include="Carts\CartItemEntityMap.cs" />
     <Compile Include="Carts\CartRepository.cs" />
     <Compile Include="Carts\ICartRepository.cs" />
+    <Compile Include="Orders\IOrderRepository.cs" />
+    <Compile Include="Orders\IOrderService.cs" />
+    <Compile Include="Orders\Order.cs" />
+    <Compile Include="Orders\OrderClassMap.cs" />
+    <Compile Include="Orders\OrderEntityMap.cs" />
+    <Compile Include="Orders\OrderLine.cs" />
+    <Compile Include="Orders\OrderLineClassMap.cs" />
+    <Compile Include="Orders\OrderLineEntityMap.cs" />
+    <Compile Include="Orders\OrderRepository.cs" />
+    <Compile Include="Orders\OrderService.cs" />
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductClassMap.cs" />
@@ -61,9 +71,7 @@
     <Compile Include="Products\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Orders\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GadgetShop.Infrastructure\GadgetShop.Infrastructure.csproj">
       <Project>{C430FD22-5DB4-4C1D-8DA2-111F9522059E}</Project>

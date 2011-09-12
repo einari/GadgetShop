@@ -37,7 +37,7 @@ namespace GadgetShop.Web
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            RelocateViews("Features");
+            RelocateViews("Features",string.Empty);
         }
 
 
@@ -66,7 +66,7 @@ namespace GadgetShop.Web
         /// By default ASP.net MVC has its views located in the Views folder of your site.
         /// This method can automatically change that location if one likes.
         /// </remarks>
-        protected void RelocateViews(string siteRelativePath)
+        protected void RelocateViews(string siteRelativePath, string areaSiteRelativePath)
         {
             foreach (var viewEngine in ViewEngines.Engines)
             {
@@ -82,11 +82,11 @@ namespace GadgetShop.Web
                         ReplaceInStrings(virtualPathViewEngine.PartialViewLocationFormats, "Views", siteRelativePath);
 
                     virtualPathViewEngine.AreaMasterLocationFormats =
-                        ReplaceInStrings(virtualPathViewEngine.AreaMasterLocationFormats, "Views", siteRelativePath);
+                        ReplaceInStrings(virtualPathViewEngine.AreaMasterLocationFormats, "Views", areaSiteRelativePath);
                     virtualPathViewEngine.AreaViewLocationFormats =
-                        ReplaceInStrings(virtualPathViewEngine.AreaViewLocationFormats, "Views", siteRelativePath);
+                        ReplaceInStrings(virtualPathViewEngine.AreaViewLocationFormats, "Views", areaSiteRelativePath);
                     virtualPathViewEngine.AreaPartialViewLocationFormats =
-                        ReplaceInStrings(virtualPathViewEngine.AreaPartialViewLocationFormats, "Views", siteRelativePath);
+                        ReplaceInStrings(virtualPathViewEngine.AreaPartialViewLocationFormats, "Views", areaSiteRelativePath);
                 }
             }
         }

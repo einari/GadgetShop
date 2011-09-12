@@ -1,0 +1,119 @@
+﻿@using GadgetShop.Web.Extensions
+@using GadgetShop.Domain.Products
+@model IEnumerable<Product>
+@section Header
+{
+    <style>
+        .ui-dialog .ui-state-error
+        {
+            padding: .3em;
+        }
+        
+        .uploadImageLink
+        {
+        }
+    </style>
+    <script>
+        var uploadImageForm;
+        var createProductForm;
+
+        $(function () {
+            uploadImageForm = $("#uploadImageForm");
+            createNewProductForm = $("#createProductForm");
+
+            uploadImageForm.dialog({
+                autoOpen: false,
+                position: ['center', 150],
+                width: 450,
+                modal: true,
+            });
+
+            createNewProductForm.dialog({
+                autoOpen: false,
+                position: ['center', 150],
+                width: 450,
+                modal: true,
+            });
+
+
+            $(".uploadImageLink").each(function (index, link) {
+                link.onclick = function () {
+                    uploadImageForm.dialog("open");
+                };
+            });
+
+            $("#createProductLink")[0].onclick = function() {
+                createNewProductForm.dialog("open");
+            };
+        });    
+    </script>
+}
+<table>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                <a href="#" class="uploadImageLink">Upload image</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<a href="#" id="createProductLink">Create new product</a>
+
+
+<div id="uploadImageForm" title="Upload image">
+    @using (Html.BeginForm("UploadImage", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <br />
+        <p>
+            <input type="file" size="25" /></p>
+        <p>@Html.SubmitLink("Upload image")</p>
+    }
+    <br />
+</div>
+<div id="createProductForm" title="Create new product">
+    @using (Html.BeginForm("Add", "Products", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    @Html.TextBox("name")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Short description
+                </td>
+                <td>
+                    @Html.TextBox("shortDescription")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Description
+                </td>
+                <td>
+                    <textarea name="description" cols="40" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+                <td>
+                    <input name="price" type="text" />
+                </td>
+            </tr>
+        </table>
+    
+        <input type="submit" value="Add product" />
+    }
+    <br />
+</div>

@@ -23,5 +23,22 @@ namespace GadgetShop.Domain.Products
         {
             return _productEntityContext.GetById(id);
         }
+
+        public IEnumerable<Product> GetAll()
+        {
+            return _productEntityContext.Entities;
+        }
+
+        public void New(string name, string shortDescription, string description, double price)
+        {
+            var product = new Product
+            {
+                Name = name,
+                ShortDescription = shortDescription,
+                Description = description,
+                Price = price
+            };
+            _productEntityContext.Insert(product);
+        }
     }
 }

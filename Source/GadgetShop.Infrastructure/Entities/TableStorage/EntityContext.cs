@@ -71,6 +71,7 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
 
         public void Insert(T entity)
         {
+            entity.Id = Guid.NewGuid();
             var actualEntity = GetActualEntity(entity);
             AddObject(_entitySetName, actualEntity);
         }

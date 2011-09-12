@@ -27,6 +27,7 @@ namespace GadgetShop.Infrastructure.Entities
 
         public void Insert(T entity)
         {
+            entity.Id = Guid.NewGuid();
             _session.Save(entity);
         }
 
