@@ -3,6 +3,7 @@ using System.Linq;
 using GadgetShop.Domain.Carts;
 using GadgetShop.Infrastructure.Entities;
 using GadgetShop.Domain.Products;
+using GadgetShop.Infrastructure.Messaging;
 
 namespace GadgetShop.Domain.Orders
 {
@@ -11,12 +12,14 @@ namespace GadgetShop.Domain.Orders
         ICartRepository _cartRepository;
         IOrderRepository _orderRepository;
         IProductRepository _productRepository;
+        IMessageBus _messageBus;
 
-        public OrderService(ICartRepository cartRepository, IOrderRepository orderRepository, IProductRepository productRepository)
+        public OrderService(ICartRepository cartRepository, IOrderRepository orderRepository, IProductRepository productRepository, IMessageBus messageBus)
         {
             _cartRepository = cartRepository;
             _orderRepository = orderRepository;
             _productRepository = productRepository;
+            _messageBus = messageBus;
         }
 
         public void PlaceOrderFromCurrentCart()
@@ -45,6 +48,10 @@ namespace GadgetShop.Domain.Orders
                 }).ToList();
 
             _orderRepository.Insert(order);
+
+            _messageBus.Send(MessagePartitions.Orders, order);
+
+            _cartRepository.Clear();
         }
     }
 }

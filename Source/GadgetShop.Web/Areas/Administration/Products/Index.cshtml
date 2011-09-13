@@ -35,14 +35,15 @@
                 modal: true,
             });
 
-
             $(".uploadImageLink").each(function (index, link) {
-                link.onclick = function () {
+                $(this).click($(this), function(e) {
+                    $("#productId")[0].value = e.target.attributes["data-product"].value;
                     uploadImageForm.dialog("open");
-                };
+                });
             });
 
             $("#createProductLink")[0].onclick = function() {
+                
                 createNewProductForm.dialog("open");
             };
         });    
@@ -56,7 +57,7 @@
                 @product.Name
             </td>
             <td>
-                <a href="#" class="uploadImageLink">Upload image</a>
+                <a href="#" data-product="@product.Id.ToString()" class="uploadImageLink">Upload image</a>
             </td>
         </tr>
     }
@@ -68,9 +69,9 @@
 <div id="uploadImageForm" title="Upload image">
     @using (Html.BeginForm("UploadImage", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
+        @Html.Hidden("productId", Guid.Empty)
         <br />
-        <p>
-            <input type="file" size="25" /></p>
+        <p><input id="file" name="file" type="file" accept="png" /></p>
         <p>@Html.SubmitLink("Upload image")</p>
     }
     <br />
@@ -78,6 +79,7 @@
 <div id="createProductForm" title="Create new product">
     @using (Html.BeginForm("Add", "Products", FormMethod.Post))
     {
+        
         <table>
             <tr>
                 <td>

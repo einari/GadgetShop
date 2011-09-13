@@ -1,6 +1,35 @@
 ﻿@using GadgetShop.Domain.Products
+@using GadgetShop.Web.Extensions
 @model Product
-
+@{
+    var productRepository = DependencyResolver.Current.GetService<IProductRepository>();
+}
 @section Headline {
     <strong>@Model.Name</strong>
 }
+<div id="items">
+    <table>
+        <tr valign="top">
+            <td style="width: 300">
+                <img src="@productRepository.GetImageUrl(Model)" alt="@Model.Name" width="300"/>
+            </td>
+            <td>
+                <div class="detailItem">
+                    <h1>Price : @Model.Price</h1>
+                    @using (Html.BeginForm("Add", "Carts", FormMethod.Post))
+                    {
+                        @Html.Hidden("Id", Model.Id)
+                        @Html.SubmitLink("add to cart", new { @class = "addtocart" })
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Model.Description
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<br />

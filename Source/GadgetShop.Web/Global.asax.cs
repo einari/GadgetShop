@@ -9,6 +9,12 @@ using Ninject.Web.Mvc;
 using GadgetShop.Web.Modules;
 using GadgetShop.Domain.Products;
 using GadgetShop.Web.Binders;
+using System.Reflection;
+using Microsoft.ServiceBus;
+using Microsoft.ServiceBus.Description;
+using Microsoft.ServiceBus.Messaging;
+using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator.NinjectAdapter;
 
 namespace GadgetShop.Web
 {
@@ -22,10 +28,16 @@ namespace GadgetShop.Web
             ModelBinders.Binders.AddFor<Product>();
 
             var kernel = new StandardKernel(
+                new AzureConfigurationModule(),
                 new EntitiesModule(),
                 new InfrastructureModule(), 
                 new DomainModule()
             );
+
+            var locator = new NinjectServiceLocator(kernel);
+            ServiceLocator.SetLocatorProvider(()=>locator);
+            kernel.Bind<IServiceLocator>().ToConstant(locator);
+
             return kernel;
         }
 
@@ -50,10 +62,20 @@ namespace GadgetShop.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            var featuresNamespace = typeof(MvcApplication).Assembly.GetName().Name + ".Features";
+
+            var query = from t in Assembly.GetExecutingAssembly().GetTypes()
+                        where t.Namespace != null && t.Namespace.StartsWith(featuresNamespace) &&
+                              t.IsSubclassOf(typeof(Controller))
+                        select t.Namespace;
+            var namespaces = query.ToArray();
+
+
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+                namespaces
             );
         }
 

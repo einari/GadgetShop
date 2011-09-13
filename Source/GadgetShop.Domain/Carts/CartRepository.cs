@@ -36,5 +36,15 @@ namespace GadgetShop.Domain.Carts
             _entityContext.Insert(cartItem);
             
         }
+
+
+        public void Clear()
+        {
+            var cart = Get();
+            foreach (var item in cart.Items)
+                _entityContext.Delete(item);
+
+            _entityContext.Commit();
+        }
     }
 }

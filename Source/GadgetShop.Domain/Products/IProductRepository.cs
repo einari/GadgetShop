@@ -9,5 +9,8 @@ namespace GadgetShop.Domain.Products
         Product GetById(Guid id); 
         IEnumerable<Product> GetTopProducts(int count);
         void New(string name, string shortDescription, string description, double price);
+        void SetImage(Guid productId, byte[] imageData);
+        string GetImageUrl(Product product);
+        string GetThumbImageUrl(Product product);
     }
 }

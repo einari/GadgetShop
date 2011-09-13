@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74D811FD-13D4-4CBC-A3D8-64EB66D2EAC8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadgetShop.ERP</RootNamespace>
+    <AssemblyName>GadgetShop.ERP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\Libraries\NHibernate\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Libraries\Castle\dotNet\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\Libraries\Castle\dotNet\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.NinjectAdapter">
+      <HintPath>..\Libraries\Ninject\dotNet\extensions\CommonServiceLocator.NinjectAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\Libraries\NHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Libraries\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Libraries\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Libraries\CommonServiceLocator\dotNet\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Libraries\JSON.net\DotNet\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\Libraries\NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\Libraries\NHibernate\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes">
+      <HintPath>..\Libraries\NHibernate\NHibernate.Mapping.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\Libraries\Ninject\dotNet\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modules\InfrastructureModule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GadgetShop.Domain\GadgetShop.Domain.csproj">
+      <Project>{12325C9C-63E6-442A-9CC2-BEFF35EEDF71}</Project>
+      <Name>GadgetShop.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GadgetShop.Infrastructure\GadgetShop.Infrastructure.csproj">
+      <Project>{C430FD22-5DB4-4C1D-8DA2-111F9522059E}</Project>
+      <Name>GadgetShop.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

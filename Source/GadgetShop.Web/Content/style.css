@@ -285,6 +285,29 @@ body {
   left: 0px;
 }
 
+.detailItem
+{
+	float: left;
+	width: 170px;
+	margin-right: 31px;
+}
+.detailItem .addtocart {
+	font: 11px arial, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 1px 5px;
+}
+.detailItem .addtocart:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.detailItem .addtocart {
+	background: #60654E;
+}
+.detailItem .addtocart:hover {
+	background: #73795F;
+}
+
 #items {
 	margin: 8px 0px 0px 29px;
 	color: #36382E;

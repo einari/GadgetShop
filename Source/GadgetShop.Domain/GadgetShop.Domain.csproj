@@ -54,6 +54,8 @@
     <Compile Include="Carts\CartItemEntityMap.cs" />
     <Compile Include="Carts\CartRepository.cs" />
     <Compile Include="Carts\ICartRepository.cs" />
+    <Compile Include="CustomerCare\ChatMessage.cs" />
+    <Compile Include="MessagePartitions.cs" />
     <Compile Include="Orders\IOrderRepository.cs" />
     <Compile Include="Orders\IOrderService.cs" />
     <Compile Include="Orders\Order.cs" />

@@ -13,6 +13,7 @@ namespace GadgetShop.Domain.Orders
             Table("OrderLines");
             Id(o => o.Id);
             Map(o => o.OrderId);
+            Map(o => o.ProductId);
             Map(o => o.ProductName);
             Map(o => o.ProductDescription);
             Map(o => o.UnitPrice);

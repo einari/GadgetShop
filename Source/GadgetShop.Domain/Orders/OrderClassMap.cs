@@ -8,7 +8,7 @@ namespace GadgetShop.Domain.Orders
         {
             Table("Orders");
             Id(o => o.Id).GeneratedBy.Assigned();
-            Map(o => o.Id);
+            Map(o => o.UserId);
             Map(o => o.Placed);
             Map(o => o.Sum);
             Map(o => o.IsConfirmed);

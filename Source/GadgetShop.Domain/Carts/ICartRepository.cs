@@ -6,5 +6,6 @@ namespace GadgetShop.Domain.Carts
     {
         Cart Get();
         void AddItem(Guid productId, int quantity, double price);
+        void Clear();
     }
 }

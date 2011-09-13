@@ -11,16 +11,12 @@ namespace GadgetShop.Web.Modules
     {
         public override void Load()
         {
-            var connectionString = "UseDevelopmentStorage=true";
-            var account = CloudStorageAccount.Parse(connectionString);
-            Bind<CloudStorageAccount>().ToConstant(account);
-            Bind(typeof(IEntityContext<>)).To(typeof(GadgetShop.Infrastructure.Entities.TableStorage.EntityContext<>)).InRequestScope();
-                
-
-            
-
             /*
-            var connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            Bind(typeof(IEntityContext<>)).To(typeof(GadgetShop.Infrastructure.Entities.TableStorage.EntityContext<>)).InRequestScope();
+            */
+
+
+            var connectionString = "";
             var entityContextConnection = new EntityContextConnection();
             entityContextConnection.FluentConfiguration.
                 Database(MsSqlConfiguration.MsSql2008.ConnectionString(connectionString)).
@@ -28,7 +24,7 @@ namespace GadgetShop.Web.Modules
             entityContextConnection.Configure();
             Bind<EntityContextConnection>().ToConstant(entityContextConnection);
 
-            Bind(typeof(IEntityContext<>)).To(typeof(EntityContext<>)).InRequestScope();*/
+            Bind(typeof(IEntityContext<>)).To(typeof(EntityContext<>)).InRequestScope();
         }
 
     }
