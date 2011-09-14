@@ -25,8 +25,8 @@ namespace GadgetShop.ERP.Modules
             var configuration = new MessageBusConfiguration
             {
                 Identity = "owner",
-                Key = "",
-                Namespace = ""
+                Key = "Gg5mXkR6eivBk5ZchkL3NHNOoPO0atG1mrSHQK1LWeM=",
+                Namespace = "gadgetshop"
             };
             return configuration;
         }

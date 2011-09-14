@@ -57,7 +57,12 @@ namespace GadgetShop.Infrastructure.Content.BlobStorage
 
         public string GetUrl(string partition, string name)
         {
-            return string.Format("{0}/{1}/{2}", _client.BaseUri.ToString(), partition, name); ;
+            var baseUri = _client.BaseUri.ToString();
+            return string.Format("{0}{1}{2}/{3}", 
+                baseUri , 
+                baseUri.EndsWith("/")?string.Empty:"/",
+                partition.ToLowerInvariant(), 
+                name.ToLowerInvariant());
         }
     }
 }

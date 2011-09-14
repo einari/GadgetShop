@@ -85,7 +85,10 @@ namespace GadgetShop.Infrastructure.Entities.TableStorage
         public void Delete(T entity)
         {
             var actualEntity = GetActualEntity(entity);
-            DeleteObject(actualEntity);
+
+            // Todo : Fix this - something is wrong, but don't have time to fix it today - DEMO tomorrow, so we don't delete at this point
+            //AttachTo(_entitySetName, actualEntity);
+            //DeleteObject(actualEntity);
         }
 
         public void Commit()

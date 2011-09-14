@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
+using CommonServiceLocator.NinjectAdapter;
+using FluentNHibernate.Cfg.Db;
+using GadgetShop.Domain.Products;
+using GadgetShop.Infrastructure.Entities;
+using GadgetShop.Web.Binders;
+using GadgetShop.Web.Modules;
+using Microsoft.Practices.ServiceLocation;
 using Ninject;
 using Ninject.Web.Mvc;
-using GadgetShop.Web.Modules;
-using GadgetShop.Domain.Products;
-using GadgetShop.Web.Binders;
-using System.Reflection;
-using Microsoft.ServiceBus;
-using Microsoft.ServiceBus.Description;
-using Microsoft.ServiceBus.Messaging;
-using Microsoft.Practices.ServiceLocation;
-using CommonServiceLocator.NinjectAdapter;
 
 namespace GadgetShop.Web
 {
@@ -28,8 +25,8 @@ namespace GadgetShop.Web
             ModelBinders.Binders.AddFor<Product>();
 
             var kernel = new StandardKernel(
+                new ConfigurationModule(),
                 new AzureConfigurationModule(),
-                new EntitiesModule(),
                 new InfrastructureModule(), 
                 new DomainModule()
             );
@@ -38,9 +35,29 @@ namespace GadgetShop.Web
             ServiceLocator.SetLocatorProvider(()=>locator);
             kernel.Bind<IServiceLocator>().ToConstant(locator);
 
+            ConfigureEntityContext(kernel);
+
             return kernel;
         }
 
+        void ConfigureEntityContext(IKernel kernel)
+        {
+            var configuration = kernel.Get<Configuration>();
+            if (configuration.UseSqlForData)
+            {
+                var entityContextConnection = new EntityContextConnection();
+                entityContextConnection.FluentConfiguration.
+                    Database(MsSqlConfiguration.MsSql2008.ConnectionString(configuration.DataConnectionString)).
+                    Mappings(m => m.FluentMappings.AddFromAssemblyOf<GadgetShop.Domain.Products.ProductClassMap>());
+                entityContextConnection.Configure();
+                kernel.Bind<EntityContextConnection>().ToConstant(entityContextConnection);
+                kernel.Bind(typeof(IEntityContext<>)).To(typeof(EntityContext<>)).InRequestScope();
+            }
+            else
+            {
+                kernel.Bind(typeof(IEntityContext<>)).To(typeof(GadgetShop.Infrastructure.Entities.TableStorage.EntityContext<>)).InRequestScope();
+            }
+        }
 
         protected override void OnApplicationStarted()
         {

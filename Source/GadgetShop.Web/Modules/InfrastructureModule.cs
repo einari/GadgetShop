@@ -5,6 +5,7 @@ using GadgetShop.Infrastructure.Content;
 using GadgetShop.Infrastructure.Images;
 using GadgetShop.Infrastructure.Serialization;
 using GadgetShop.Infrastructure.Messaging;
+using Ninject;
 using Ninject.Activation;
 
 namespace GadgetShop.Web.Modules
@@ -26,13 +27,14 @@ namespace GadgetShop.Web.Modules
 
         MessageBusConfiguration CreateMessageBusConfiguration(IContext context)
         {
-            var configuration = new MessageBusConfiguration
+            var configuration = context.Kernel.Get<Configuration>();
+            var messageBusConfiguration = new MessageBusConfiguration
             {
-                Identity = "owner",
-                Key = "",
-                Namespace = ""
+                Identity = configuration.QueueIdentity,
+                Key = configuration.QueueKey,
+                Namespace = configuration.QueueNamespace
             };
-            return configuration;
+            return messageBusConfiguration;
         }
     }
 }
