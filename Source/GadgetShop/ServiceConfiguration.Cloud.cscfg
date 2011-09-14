@@ -4,8 +4,13 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="UseSql" value="true" />
+      <Setting name="UseSqlForData" value="true" />
       <Setting name="DataConnectionString" value="" />
+      <Setting name="StorageAccountConnectionString" value="" />
+      <Setting name="QueueNamespace" value="" />
+      <Setting name="QueueIdentity" value="" />
+      <Setting name="QueueKey" value="" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

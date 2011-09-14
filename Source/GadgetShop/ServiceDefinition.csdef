@@ -15,8 +15,13 @@
       <Import moduleName="Diagnostics" />
     </Imports>
     <ConfigurationSettings>
-      <Setting name="UseSql" />
+      <Setting name="UseSqlForData" />
       <Setting name="DataConnectionString" />
+      <Setting name="StorageAccountConnectionString" />
+      <Setting name="QueueNamespace" />
+      <Setting name="QueueIdentity" />
+      <Setting name="QueueKey" />
+      <Setting name="DiagnosticsConnectionString" />
     </ConfigurationSettings>
   </WebRole>
 </ServiceDefinition>

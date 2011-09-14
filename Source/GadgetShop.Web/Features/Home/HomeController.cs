@@ -18,17 +18,10 @@ namespace GadgetShop.Web.Features.Home
             _messageBus = messageBus;
         }
 
-
         public ActionResult Index()
         {
             var products = _productRepository.GetTopProducts(4);
             return View(products);
-        }
-
-        public ActionResult DoStuff()
-        {
-            _messageBus.Send(MessagePartitions.CustomerCare, new ChatMessage { Body = "Hello world" });
-            return RedirectToAction("Index");
         }
     }
 }
